@@ -15,6 +15,7 @@ const Axes = (props) => {
 
   const generateTitle = () => {
     let title;
+    let title_data;
     if (view.title) {
       title = (
         <Entity
@@ -30,7 +31,21 @@ const Axes = (props) => {
             } 0`}
         />
       );
+
+      title_data = {
+        text: {
+          'width': rangesMax.x,
+          'value': view.title,
+          'color': options.chartColor,
+          'side': 'front',
+          'anchor': 'align',
+          'align': 'center'
+        },
+        'position': `${rangesMax.x / 2 || 0} ${rangesMax.y ? rangesMax.y + view.titlePadding : view.titlePadding
+          } 0`
+      }
     }
+    log.debug("OUTPUT", "title_data", title_data);
     return title;
   };
 
@@ -210,7 +225,7 @@ const Axes = (props) => {
     });
 
 
-    log.debug(axis_data);
+    log.debug('OUTPUT', 'axis_data', axis_data);
     return axes;
   };
 
