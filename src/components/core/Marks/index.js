@@ -20,6 +20,9 @@ const Marks = (props) => {
   const markType = view.mark.type;
   const markShape = view.mark.shape;
 
+  // OUTPUT mark array
+  const marks_data = [];
+
   // Loop over all rows in the data
   const marks = dataset.map((row, i) => {
     const vriaid = `vria-${row.vriaid}`;
@@ -162,8 +165,7 @@ const Marks = (props) => {
     if (attributes.color === undefined)
       attributes.color = d3.schemeCategory10[0];
 
-    // OUTPUT mark array
-    const marks_data = [];
+
 
     // Which type to render
     switch (markType) {
@@ -824,9 +826,13 @@ const Marks = (props) => {
       default:
         break;
     }
+
+
     return mark;
   });
 
+
+  log.debug('OUTPUT', 'marks_data', marks_data);
   return <Entity className='marks'>{marks}</Entity>;
 };
 
