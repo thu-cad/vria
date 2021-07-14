@@ -167,7 +167,7 @@ const Axes = (props) => {
             );
 
             axis_data.push({
-              'key': 'xAxis',
+              'key': 'yAxis',
               'title': title,
               'numberFormat': view.encoding[channel].numberFormat,
               'tickValues': tickValues,
@@ -202,7 +202,7 @@ const Axes = (props) => {
             );
 
             axis_data.push({
-              'key': 'xAxis',
+              'key': 'zAxis',
               'title': title,
               'numberFormat': view.encoding[channel].numberFormat,
               'tickValues': tickValues,
