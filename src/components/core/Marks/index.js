@@ -61,9 +61,8 @@ const Marks = (props) => {
         tooltipHeight = (view.mark.tooltip.content.length + 1) * lineHeight;
       } else {
         // Single field name
-        tooltipContent = `${view.mark.tooltip.content}: ${
-          row[view.mark.tooltip.content]
-        }`;
+        tooltipContent = `${view.mark.tooltip.content}: ${row[view.mark.tooltip.content]
+          }`;
       }
     }
 
@@ -163,6 +162,9 @@ const Marks = (props) => {
     if (attributes.color === undefined)
       attributes.color = d3.schemeCategory10[0];
 
+    // OUTPUT mark array
+    const marks_data = [];
+
     // Which type to render
     switch (markType) {
       // Scatter based charts
@@ -204,18 +206,18 @@ const Marks = (props) => {
         }
 
         // This point's position in the view
-        attributes.position = `${attributes.x || 0} ${attributes.y || 0} ${
-          attributes.z || 0
-        }`;
+        attributes.position = `${attributes.x || 0} ${attributes.y || 0} ${attributes.z || 0
+          }`;
 
         // This point's rotation in the view
-        attributes.rotation = `${attributes.xrotation || 0} ${
-          attributes.yrotation || 0
-        } ${attributes.zrotation || 0}`;
+        attributes.rotation = `${attributes.xrotation || 0} ${attributes.yrotation || 0
+          } ${attributes.zrotation || 0}`;
         console.log(attributes.rotation);
 
         // Shape scale
         const shapeScaleMark = attributes.shape ? attributes.shape : null;
+
+        // OUTPUT: here to get mark data
 
         switch (shapeScaleMark || markShape) {
           case 'sphere':
@@ -520,6 +522,25 @@ const Marks = (props) => {
                   events={markEvents}
                 />
               );
+
+              marks_data.push({
+                'key': { i },
+                'tooltipContent': tooltipContent,
+                'tooltipHeight': tooltipHeight,
+                'position': attributes.position,
+                'primitive': 'a-box',
+                'className': `interactive vria-mark ${vriaid}`,
+                'data-mark': JSON.stringify(row),
+                'width': width,
+                'height': height,
+                'depth': depth,
+                'color': attributes.color,
+                'initialColor': attributes.color,
+                'initialOpacity': attributes.opacity,
+                'opacity': attributes.opacity,
+                'events': markEvents,
+              })
+
               break;
             case 'plane':
               // TODO: Plane
@@ -544,6 +565,25 @@ const Marks = (props) => {
                   events={markEvents}
                 />
               );
+
+              marks_data.push({
+                'key': i,
+                'tooltipContent': tooltipContent,
+                'tooltipHeight': tooltipHeight,
+                'primitive': 'a-cylinder',
+                'className': `interactive vria-mark ${vriaid}`,
+                'data-mark': JSON.stringify(row),
+                'rotation': '0 0 0',
+                'radius': width / 2,
+                'height': height,
+                'color': attributes.color,
+                'initialColor': attributes.color,
+                'position': attributes.position,
+                'initialOpacity': attributes.opacity,
+                'opacity': attributes.opacity,
+                'events': markEvents
+              })
+
               break;
             case 'cone':
               mark = (
@@ -571,6 +611,31 @@ const Marks = (props) => {
                   events={markEvents}
                 />
               );
+
+              marks_data.push({
+                'key': i,
+                'tooltipContent': tooltipContent,
+                'tooltipHeight': tooltipHeight,
+                'primitive': 'a-cone',
+                'className': `interactive vria-mark ${vriaid}`,
+                'data-mark': JSON.stringify(row),
+                'height': height,
+                'color': attributes.color,
+                'initialColor': attributes.color,
+                'position': attributes.position,
+                'rotation': attributes.rotation,
+                'segments-height': '9',
+                'segments-radial': '18',
+                'radius-top': '0',
+                'radius-bottom': d3.min([
+                  scales.x.bandwidth() / 2,
+                  scales.z.bandwidth() / 2
+                ]),
+                'initialOpacity': attributes.opacity,
+                'opacity': attributes.opacity,
+                'events': markEvents,
+              })
+
               break;
             // Custom Mark
             default: {
