@@ -244,8 +244,32 @@ const Marks = (props) => {
                 initialOpacity={attributes.opacity}
                 opacity={attributes.opacity}
                 events={markEvents}
-              />
-            );
+              />);
+
+            marks_data.push({
+              'key': i,
+              'tooltipContent': tooltipContent,
+              'tooltipHeight': tooltipHeight,
+              'primitive': 'a-sphere',
+              'className': `interactive vria-mark ${vriaid}`,
+              'data-mark': JSON.stringify(row),
+              'radius': '0.5',
+              'scale': {
+                x: attributes.width || radius,
+                y: attributes.height || radius,
+                z: attributes.depth || radius
+              },
+              'segments-height': '9',
+              'segments-width': '18',
+              'color': attributes.color,
+              'initialColor': attributes.color,
+              'position': attributes.position,
+              'rotation': attributes.rotation,
+              'initialOpacity': attributes.opacity,
+              'opacity': attributes.opacity,
+              'events': markEvents
+            });
+
             break;
           case 'box':
             mark = (
@@ -273,6 +297,31 @@ const Marks = (props) => {
                 events={markEvents}
               />
             );
+
+            marks_data.push({
+              'key': i,
+              'tooltipContent': tooltipContent,
+              'tooltipHeight': tooltipHeight,
+              'primitive': 'a-box',
+              'className': `interactive vria-mark ${vriaid}`,
+              'data-mark': JSON.stringify(row),
+              'scale': {
+                x: attributes.width || radius,
+                y: attributes.height || radius,
+                z: attributes.depth || radius
+              },
+              'width': '1',
+              'height': '1',
+              'depth': '1',
+              'color': attributes.color,
+              'initialColor': attributes.color,
+              'position': attributes.position,
+              'rotation': attributes.rotation,
+              'initialOpacity': attributes.opacity,
+              'opacity': attributes.opacity,
+              'events': markEvents
+            });
+
             break;
           case 'cone':
             mark = (
@@ -303,6 +352,33 @@ const Marks = (props) => {
                 events={markEvents}
               />
             );
+
+            marks_data.push({
+              'key': i,
+              'tooltipContent': tooltipContent,
+              'tooltipHeight': tooltipHeight,
+              'primitive': 'a-cone',
+              'className': `interactive vria-mark ${vriaid}`,
+              'data-mark': JSON.stringify(row),
+              'height': '1',
+              'scale': {
+                x: attributes.width || radius,
+                y: attributes.height || radius,
+                z: attributes.depth || radius
+              },
+              'color': attributes.color,
+              'initialColor': attributes.color,
+              'position': attributes.position,
+              'rotation': attributes.rotation,
+              'segments-height': '9',
+              'segments-radial': '18',
+              'radius-top': '0',
+              'radius-bottom': '0.5',
+              'initialOpacity': attributes.opacity,
+              'opacity': attributes.opacity,
+              'events': markEvents
+            })
+
             break;
           case 'tetrahedron':
             mark = (
@@ -377,6 +453,25 @@ const Marks = (props) => {
                 events={markEvents}
               />
             );
+
+            marks_data.push({
+              'key': i,
+              'tooltipContent': tooltipContent,
+              'tooltipHeight': tooltipHeight,
+              'primitive': 'a-cylinder',
+              'className': `interactive vria-mark ${vriaid}`,
+              'data-mark': JSON.stringify(row),
+              'rotation': attributes.rotation,
+              'radius': attributes.width / 2 || 0.05,
+              'height': attributes.depth !== 0 ? attributes.depth : 0.001,
+              'color': attributes.color,
+              'initialColor': attributes.color,
+              'position': attributes.position,
+              'initialOpacity': attributes.opacity,
+              'opacity': attributes.opacity,
+              'events': markEvents
+            })
+
             break;
           // Custom Mark
           default: {
