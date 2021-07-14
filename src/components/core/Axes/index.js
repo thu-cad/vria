@@ -26,9 +26,8 @@ const Axes = (props) => {
             anchor: 'align',
             align: 'center'
           }}
-          position={`${rangesMax.x / 2 || 0} ${
-            rangesMax.y ? rangesMax.y + view.titlePadding : view.titlePadding
-          } 0`}
+          position={`${rangesMax.x / 2 || 0} ${rangesMax.y ? rangesMax.y + view.titlePadding : view.titlePadding
+            } 0`}
         />
       );
     }
@@ -37,6 +36,7 @@ const Axes = (props) => {
 
   const generateAxes = () => {
     const axes = [];
+    const axis_data = [];
 
     ['x', 'y', 'z'].forEach((channel) => {
       // If this channel is in the view
@@ -114,6 +114,23 @@ const Axes = (props) => {
                 position={`0 0 ${xFace}`}
               />
             );
+
+            axis_data.push({
+              'key': 'xAxis',
+              'title': title,
+              'numberFormat': view.encoding[channel].numberFormat,
+              'tickValues': tickValues,
+              'tickOffset': tickOffset,
+              'scales': scales,
+              'rangesMax': rangesMax,
+              'color': options.chartColor,
+              'title': title,
+              'titlePadding': view.encoding[channel]?.axis?.titlePadding,
+              'labels': view.encoding[channel]?.axis?.labels,
+              'ticks': view.encoding[channel]?.axis?.ticks,
+              'position': `0 0 ${xFace}`
+            })
+
             break;
           case 'y':
             axes.push(
@@ -133,6 +150,22 @@ const Axes = (props) => {
                 position={`0 0 ${yFace}`}
               />
             );
+
+            axis_data.push({
+              'key': 'xAxis',
+              'title': title,
+              'numberFormat': view.encoding[channel].numberFormat,
+              'tickValues': tickValues,
+              'tickOffset': tickOffset,
+              'scales': scales,
+              'rangesMax': rangesMax,
+              'color': options.chartColor,
+              'title': title,
+              'titlePadding': view.encoding[channel]?.axis?.titlePadding,
+              'labels': view.encoding[channel]?.axis?.labels,
+              'ticks': view.encoding[channel]?.axis?.ticks,
+              'position': `0 0 ${yFace}`
+            })
             break;
           case 'z':
             axes.push(
@@ -152,13 +185,32 @@ const Axes = (props) => {
                 position={`${zFace} 0 0`}
               />
             );
+
+            axis_data.push({
+              'key': 'xAxis',
+              'title': title,
+              'numberFormat': view.encoding[channel].numberFormat,
+              'tickValues': tickValues,
+              'tickOffset': tickOffset,
+              'scales': scales,
+              'rangesMax': rangesMax,
+              'color': options.chartColor,
+              'title': title,
+              'titlePadding': view.encoding[channel]?.axis?.titlePadding,
+              'labels': view.encoding[channel]?.axis?.labels,
+              'ticks': view.encoding[channel]?.axis?.ticks,
+              'position': `0 0 ${zFace}`
+            })
             break;
           default:
             break;
         }
+
       }
     });
 
+
+    log.debug(axis_data);
     return axes;
   };
 
