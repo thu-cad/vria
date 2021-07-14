@@ -671,7 +671,7 @@ const Marks = (props) => {
               );
 
               marks_data.push({
-                'key': { i },
+                'key': i,
                 'tooltipContent': tooltipContent,
                 'tooltipHeight': tooltipHeight,
                 'position': attributes.position,
