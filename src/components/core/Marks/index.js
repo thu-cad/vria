@@ -404,7 +404,31 @@ const Marks = (props) => {
                 events={markEvents}
               />
             );
+
+            marks_data.push({
+              'key': i,
+              'tooltipContent': tooltipContent,
+              'tooltipHeight': tooltipHeight,
+              'primitive': 'a-tetrahedron',
+              'className': `interactive vria-mark ${vriaid}`,
+              'data-mark': JSON.stringify(row),
+              'radius': '1',
+              'scale': {
+                x: attributes.width || radius,
+                y: attributes.height || radius,
+                z: attributes.depth || radius
+              },
+              'color': attributes.color,
+              'initialColor': attributes.color,
+              'position': attributes.position,
+              'rotation': attributes.rotation,
+              'initialOpacity': attributes.opacity,
+              'opacity': attributes.opacity,
+              'events': markEvents
+            })
+
             break;
+
           case 'torus':
             mark = (
               <Entity
@@ -432,6 +456,32 @@ const Marks = (props) => {
                 events={markEvents}
               />
             );
+
+            marks_data.push({
+              'key': i,
+              'tooltipContent': tooltipContent,
+              'tooltipHeight': tooltipHeight,
+              'primitive': 'a-torus',
+              'className': `interactive vria-mark ${vriaid}`,
+              'data-mark': JSON.stringify(row),
+              'radius': '0.5',
+              'radius-tubular': '0.05',
+              'scale': {
+                x: attributes.width || radius,
+                y: attributes.height || radius,
+                z: attributes.depth || radius
+              },
+              'segments-radial': '18',
+              'segments-tubular': '16',
+              'color': attributes.color,
+              'initialColor': attributes.color,
+              'position': attributes.position,
+              'rotation': attributes.rotation,
+              'initialOpacity': attributes.opacity,
+              'opacity': attributes.opacity,
+              'events': markEvents
+            })
+
             break;
           case 'cylinder':
             mark = (
