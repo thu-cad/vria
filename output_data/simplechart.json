@@ -1,0 +1,183 @@
+{
+  "axes": {
+    "title": {
+      "text": {
+        "width": 1,
+        "value": "Hello VRIA",
+        "color": "#000000",
+        "side": "front",
+        "anchor": "align",
+        "align": "center"
+      },
+      "position": "0.5 1.1 0"
+    },
+    "axis": [
+      {
+        "key": "xAxis",
+        "title": "a",
+        "tickValues": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "tickOffset": 0.07142857142857142,
+        "scales": {},
+        "rangesMax": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "color": "#000000",
+        "titlePadding": 0.2,
+        "labels": true,
+        "ticks": true,
+        "position": "0 0 0"
+      },
+      {
+        "key": "yAxis",
+        "title": "b",
+        "tickValues": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2,
+          2.5,
+          3,
+          3.5,
+          4,
+          4.5,
+          5,
+          5.5,
+          6,
+          6.5,
+          7
+        ],
+        "tickOffset": 0,
+        "scales": {},
+        "rangesMax": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "color": "#000000",
+        "titlePadding": 0.2,
+        "labels": true,
+        "ticks": true,
+        "position": "0 0 0"
+      },
+      {
+        "key": "zAxis",
+        "title": "c",
+        "tickValues": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "tickOffset": 0.07142857142857142,
+        "scales": {},
+        "rangesMax": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "color": "#000000",
+        "titlePadding": 0.2,
+        "labels": true,
+        "ticks": true,
+        "position": "0 0 0"
+      }
+    ]
+  },
+  "marks": [
+    {
+      "key": 0,
+      "tooltipContent": "",
+      "tooltipHeight": 0.05,
+      "position": "0.1190476190476191 0.21428571428571427 0.1190476190476191",
+      "primitive": "a-box",
+      "className": "interactive vria-mark vria-0",
+      "data-mark": "{\"a\":\"A\",\"b\":3,\"c\":\"A\",\"vriaid\":0}",
+      "width": 0.14285714285714285,
+      "height": 0.42857142857142855,
+      "depth": 0.14285714285714285,
+      "color": "#1f77b4",
+      "initialColor": "#1f77b4",
+      "initialOpacity": 1,
+      "opacity": 1,
+      "events": {}
+    },
+    {
+      "key": 1,
+      "tooltipContent": "",
+      "tooltipHeight": 0.05,
+      "position": "0.30952380952380953 0.35714285714285715 0.30952380952380953",
+      "primitive": "a-box",
+      "className": "interactive vria-mark vria-1",
+      "data-mark": "{\"a\":\"B\",\"b\":5,\"c\":\"B\",\"vriaid\":1}",
+      "width": 0.14285714285714285,
+      "height": 0.7142857142857143,
+      "depth": 0.14285714285714285,
+      "color": "#1f77b4",
+      "initialColor": "#1f77b4",
+      "initialOpacity": 1,
+      "opacity": 1,
+      "events": {}
+    },
+    {
+      "key": 2,
+      "tooltipContent": "",
+      "tooltipHeight": 0.05,
+      "position": "0.5 0.5 0.5",
+      "primitive": "a-box",
+      "className": "interactive vria-mark vria-2",
+      "data-mark": "{\"a\":\"C\",\"b\":7,\"c\":\"C\",\"vriaid\":2}",
+      "width": 0.14285714285714285,
+      "height": 1,
+      "depth": 0.14285714285714285,
+      "color": "#1f77b4",
+      "initialColor": "#1f77b4",
+      "initialOpacity": 1,
+      "opacity": 1,
+      "events": {}
+    },
+    {
+      "key": 3,
+      "tooltipContent": "",
+      "tooltipHeight": 0.05,
+      "position": "0.6904761904761905 0.42857142857142855 0.6904761904761905",
+      "primitive": "a-box",
+      "className": "interactive vria-mark vria-3",
+      "data-mark": "{\"a\":\"D\",\"b\":6,\"c\":\"D\",\"vriaid\":3}",
+      "width": 0.14285714285714285,
+      "height": 0.8571428571428571,
+      "depth": 0.14285714285714285,
+      "color": "#1f77b4",
+      "initialColor": "#1f77b4",
+      "initialOpacity": 1,
+      "opacity": 1,
+      "events": {}
+    },
+    {
+      "key": 4,
+      "tooltipContent": "",
+      "tooltipHeight": 0.05,
+      "position": "0.8809523809523809 0.2857142857142857 0.8809523809523809",
+      "primitive": "a-box",
+      "className": "interactive vria-mark vria-4",
+      "data-mark": "{\"a\":\"E\",\"b\":4,\"c\":\"E\",\"vriaid\":4}",
+      "width": 0.14285714285714285,
+      "height": 0.5714285714285714,
+      "depth": 0.14285714285714285,
+      "color": "#1f77b4",
+      "initialColor": "#1f77b4",
+      "initialOpacity": 1,
+      "opacity": 1,
+      "events": {}
+    }
+  ]
+}
