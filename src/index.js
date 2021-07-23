@@ -17,6 +17,7 @@ import { defaults } from './grammar/defaults';
 // Named exports
 export { default as schema } from './grammar/schema';
 export { default as validateVisConfig } from './grammar/validateVisConfig';
+export { chartData } from './components/core/index';
 
 /**
  * @name VRIA

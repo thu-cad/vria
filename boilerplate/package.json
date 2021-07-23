@@ -12,6 +12,7 @@
   "dependencies": {
     "aframe-environment-component": "^2.0.0",
     "aframe-react": "^4.4.0",
+    "is-core-module": "^2.5.0",
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",
     "react-scripts": "link:../node_modules/react-scripts",
