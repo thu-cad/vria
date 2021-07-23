@@ -12,17 +12,18 @@ const App = () => (
         title: 'Hello VRIA',
         data: {
           values: [
-            { a: 'A', b: 3 },
-            { a: 'B', b: 5 },
-            { a: 'C', b: 7 },
-            { a: 'D', b: 6 },
-            { a: 'E', b: 4 }
+            { a: 'A', b: 3, c: "A" },
+            { a: 'B', b: 5, c: "B" },
+            { a: 'C', b: 7, c: "C" },
+            { a: 'D', b: 6, c: "D" },
+            { a: 'E', b: 4, c: "E" }
           ]
         },
         mark: 'bar',
         encoding: {
           x: { field: 'a', type: 'nominal' },
-          y: { field: 'b', type: 'quantitative', axis: { filter: true } }
+          y: { field: 'b', type: 'quantitative', axis: { filter: true } },
+          z: { field: 'c', type: 'nominal' }
         }
       }}
     />

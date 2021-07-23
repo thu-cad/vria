@@ -1,97 +1,686 @@
 {
-  "axes": {
-    "title": {
+  "key": "chartData",
+  "title": {
+    "text": {
+      "width": 1,
+      "value": "Hello VRIA",
+      "color": "#000000",
+      "side": "front",
+      "anchor": "align",
+      "align": "center"
+    },
+    "position": "1.5 1.1 1.5"
+  },
+  "xAxis": {
+    "fieldType": "nominal",
+    "tickValues": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "tickOffset": 0.07142857142857142,
+    "scales": {},
+    "rangesMax": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "color": "#000000",
+    "title": "a",
+    "titlePadding": 0.2,
+    "labels": true,
+    "ticks": true,
+    "position": "0 0 0",
+    "axis": "x",
+    "start": "0 0 1",
+    "end": "1 0 1",
+    "ticksData": [
+      {
+        "key": "xTicks0",
+        "line": {
+          "start": "0.1190476190476191 0 1",
+          "end": "0.1190476190476191 -0.025 1",
+          "color": "#000000",
+          "tick": "A",
+          "scaleTick": 0.04761904761904767
+        }
+      },
+      {
+        "key": "xTicks1",
+        "line": {
+          "start": "0.30952380952380953 0 1",
+          "end": "0.30952380952380953 -0.025 1",
+          "color": "#000000",
+          "tick": "B",
+          "scaleTick": 0.23809523809523814
+        }
+      },
+      {
+        "key": "xTicks2",
+        "line": {
+          "start": "0.5 0 1",
+          "end": "0.5 -0.025 1",
+          "color": "#000000",
+          "tick": "C",
+          "scaleTick": 0.4285714285714286
+        }
+      },
+      {
+        "key": "xTicks3",
+        "line": {
+          "start": "0.6904761904761905 0 1",
+          "end": "0.6904761904761905 -0.025 1",
+          "color": "#000000",
+          "tick": "D",
+          "scaleTick": 0.6190476190476191
+        }
+      },
+      {
+        "key": "xTicks4",
+        "line": {
+          "start": "0.8809523809523809 0 1",
+          "end": "0.8809523809523809 -0.025 1",
+          "color": "#000000",
+          "tick": "E",
+          "scaleTick": 0.8095238095238095
+        }
+      }
+    ],
+    "titleData": {
       "text": {
         "width": 1,
-        "value": "Hello VRIA",
+        "value": "a",
         "color": "#000000",
         "side": "front",
         "anchor": "align",
         "align": "center"
       },
-      "position": "0.5 1.1 0"
+      "position": "0.5 -0.2 1",
+      "rotation": "0 0 0"
     },
-    "axis": [
+    "tickTextData": [
       {
-        "key": "xAxis",
-        "title": "a",
-        "tickValues": [
-          "A",
-          "B",
-          "C",
-          "D",
-          "E"
-        ],
-        "tickOffset": 0.07142857142857142,
-        "scales": {},
-        "rangesMax": {
-          "x": 1,
-          "y": 1,
-          "z": 1
+        "key": "xTickText0",
+        "text": {
+          "width": 0.6,
+          "value": "A",
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
         },
-        "color": "#000000",
-        "titlePadding": 0.2,
-        "labels": true,
-        "ticks": true,
-        "position": "0 0 0"
+        "position": "0.1190476190476191 -0.035 1",
+        "rotation": "0 0 90"
       },
       {
-        "key": "yAxis",
-        "title": "b",
-        "tickValues": [
-          0,
-          0.5,
-          1,
-          1.5,
-          2,
-          2.5,
-          3,
-          3.5,
-          4,
-          4.5,
-          5,
-          5.5,
-          6,
-          6.5,
-          7
-        ],
-        "tickOffset": 0,
-        "scales": {},
-        "rangesMax": {
-          "x": 1,
-          "y": 1,
-          "z": 1
+        "key": "xTickText1",
+        "text": {
+          "width": 0.6,
+          "value": "B",
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
         },
-        "color": "#000000",
-        "titlePadding": 0.2,
-        "labels": true,
-        "ticks": true,
-        "position": "0 0 0"
+        "position": "0.30952380952380953 -0.035 1",
+        "rotation": "0 0 90"
       },
       {
-        "key": "zAxis",
-        "title": "c",
-        "tickValues": [
-          "A",
-          "B",
-          "C",
-          "D",
-          "E"
-        ],
-        "tickOffset": 0.07142857142857142,
-        "scales": {},
-        "rangesMax": {
-          "x": 1,
-          "y": 1,
-          "z": 1
+        "key": "xTickText2",
+        "text": {
+          "width": 0.6,
+          "value": "C",
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
         },
-        "color": "#000000",
-        "titlePadding": 0.2,
-        "labels": true,
-        "ticks": true,
-        "position": "0 0 0"
+        "position": "0.5 -0.035 1",
+        "rotation": "0 0 90"
+      },
+      {
+        "key": "xTickText3",
+        "text": {
+          "width": 0.6,
+          "value": "D",
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "0.6904761904761905 -0.035 1",
+        "rotation": "0 0 90"
+      },
+      {
+        "key": "xTickText4",
+        "text": {
+          "width": 0.6,
+          "value": "E",
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "0.8809523809523809 -0.035 1",
+        "rotation": "0 0 90"
       }
     ]
+  },
+  "yAxis": {
+    "fieldType": "quantitative",
+    "tickValues": [
+      0,
+      0.5,
+      1,
+      1.5,
+      2,
+      2.5,
+      3,
+      3.5,
+      4,
+      4.5,
+      5,
+      5.5,
+      6,
+      6.5,
+      7
+    ],
+    "tickOffset": 0,
+    "scales": {},
+    "rangesMax": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "color": "#000000",
+    "title": "b",
+    "titlePadding": 0.2,
+    "labels": true,
+    "ticks": true,
+    "position": "0 0 0",
+    "axis": "y",
+    "start": "0 0 0",
+    "end": "0 1 0",
+    "ticksData": [
+      {
+        "key": "yTicks0",
+        "line": {
+          "start": "0 0 0",
+          "end": "-0.025 0 0",
+          "color": "#000000"
+        }
+      },
+      {
+        "key": "yTicks1",
+        "line": {
+          "start": "0 0.07142857142857142 0",
+          "end": "-0.025 0.07142857142857142 0",
+          "color": "#000000"
+        }
+      },
+      {
+        "key": "yTicks2",
+        "line": {
+          "start": "0 0.14285714285714285 0",
+          "end": "-0.025 0.14285714285714285 0",
+          "color": "#000000"
+        }
+      },
+      {
+        "key": "yTicks3",
+        "line": {
+          "start": "0 0.21428571428571427 0",
+          "end": "-0.025 0.21428571428571427 0",
+          "color": "#000000"
+        }
+      },
+      {
+        "key": "yTicks4",
+        "line": {
+          "start": "0 0.2857142857142857 0",
+          "end": "-0.025 0.2857142857142857 0",
+          "color": "#000000"
+        }
+      },
+      {
+        "key": "yTicks5",
+        "line": {
+          "start": "0 0.35714285714285715 0",
+          "end": "-0.025 0.35714285714285715 0",
+          "color": "#000000"
+        }
+      },
+      {
+        "key": "yTicks6",
+        "line": {
+          "start": "0 0.42857142857142855 0",
+          "end": "-0.025 0.42857142857142855 0",
+          "color": "#000000"
+        }
+      },
+      {
+        "key": "yTicks7",
+        "line": {
+          "start": "0 0.5 0",
+          "end": "-0.025 0.5 0",
+          "color": "#000000"
+        }
+      },
+      {
+        "key": "yTicks8",
+        "line": {
+          "start": "0 0.5714285714285714 0",
+          "end": "-0.025 0.5714285714285714 0",
+          "color": "#000000"
+        }
+      },
+      {
+        "key": "yTicks9",
+        "line": {
+          "start": "0 0.6428571428571429 0",
+          "end": "-0.025 0.6428571428571429 0",
+          "color": "#000000"
+        }
+      },
+      {
+        "key": "yTicks10",
+        "line": {
+          "start": "0 0.7142857142857143 0",
+          "end": "-0.025 0.7142857142857143 0",
+          "color": "#000000"
+        }
+      },
+      {
+        "key": "yTicks11",
+        "line": {
+          "start": "0 0.7857142857142857 0",
+          "end": "-0.025 0.7857142857142857 0",
+          "color": "#000000"
+        }
+      },
+      {
+        "key": "yTicks12",
+        "line": {
+          "start": "0 0.8571428571428571 0",
+          "end": "-0.025 0.8571428571428571 0",
+          "color": "#000000"
+        }
+      },
+      {
+        "key": "yTicks13",
+        "line": {
+          "start": "0 0.9285714285714286 0",
+          "end": "-0.025 0.9285714285714286 0",
+          "color": "#000000"
+        }
+      },
+      {
+        "key": "yTicks14",
+        "line": {
+          "start": "0 1 0",
+          "end": "-0.025 1 0",
+          "color": "#000000"
+        }
+      }
+    ],
+    "tickTextData": [
+      {
+        "key": "yTickText0",
+        "text": {
+          "width": 0.6,
+          "value": 0,
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "-0.035 0 0",
+        "rotation": "0 0 0"
+      },
+      {
+        "key": "yTickText1",
+        "text": {
+          "width": 0.6,
+          "value": 0.5,
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "-0.035 0.07142857142857142 0",
+        "rotation": "0 0 0"
+      },
+      {
+        "key": "yTickText2",
+        "text": {
+          "width": 0.6,
+          "value": 1,
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "-0.035 0.14285714285714285 0",
+        "rotation": "0 0 0"
+      },
+      {
+        "key": "yTickText3",
+        "text": {
+          "width": 0.6,
+          "value": 1.5,
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "-0.035 0.21428571428571427 0",
+        "rotation": "0 0 0"
+      },
+      {
+        "key": "yTickText4",
+        "text": {
+          "width": 0.6,
+          "value": 2,
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "-0.035 0.2857142857142857 0",
+        "rotation": "0 0 0"
+      },
+      {
+        "key": "yTickText5",
+        "text": {
+          "width": 0.6,
+          "value": 2.5,
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "-0.035 0.35714285714285715 0",
+        "rotation": "0 0 0"
+      },
+      {
+        "key": "yTickText6",
+        "text": {
+          "width": 0.6,
+          "value": 3,
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "-0.035 0.42857142857142855 0",
+        "rotation": "0 0 0"
+      },
+      {
+        "key": "yTickText7",
+        "text": {
+          "width": 0.6,
+          "value": 3.5,
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "-0.035 0.5 0",
+        "rotation": "0 0 0"
+      },
+      {
+        "key": "yTickText8",
+        "text": {
+          "width": 0.6,
+          "value": 4,
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "-0.035 0.5714285714285714 0",
+        "rotation": "0 0 0"
+      },
+      {
+        "key": "yTickText9",
+        "text": {
+          "width": 0.6,
+          "value": 4.5,
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "-0.035 0.6428571428571429 0",
+        "rotation": "0 0 0"
+      },
+      {
+        "key": "yTickText10",
+        "text": {
+          "width": 0.6,
+          "value": 5,
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "-0.035 0.7142857142857143 0",
+        "rotation": "0 0 0"
+      },
+      {
+        "key": "yTickText11",
+        "text": {
+          "width": 0.6,
+          "value": 5.5,
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "-0.035 0.7857142857142857 0",
+        "rotation": "0 0 0"
+      },
+      {
+        "key": "yTickText12",
+        "text": {
+          "width": 0.6,
+          "value": 6,
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "-0.035 0.8571428571428571 0",
+        "rotation": "0 0 0"
+      },
+      {
+        "key": "yTickText13",
+        "text": {
+          "width": 0.6,
+          "value": 6.5,
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "-0.035 0.9285714285714286 0",
+        "rotation": "0 0 0"
+      },
+      {
+        "key": "yTickText14",
+        "text": {
+          "width": 0.6,
+          "value": 7,
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "-0.035 1 0",
+        "rotation": "0 0 0"
+      }
+    ],
+    "titleData": {
+      "text": {
+        "width": 1,
+        "value": "b",
+        "color": "#000000",
+        "side": "front",
+        "anchor": "align",
+        "align": "center"
+      },
+      "position": "-0.2 0.5 0",
+      "rotation": "0 0 90"
+    }
+  },
+  "zAxis": {
+    "fieldType": "nominal",
+    "tickValues": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "tickOffset": 0.07142857142857142,
+    "scales": {},
+    "rangesMax": {
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "color": "#000000",
+    "title": "c",
+    "titlePadding": 0.2,
+    "labels": true,
+    "ticks": true,
+    "position": "0 0 0",
+    "axis": "z",
+    "start": "0 0 0",
+    "end": "0 0 1",
+    "ticksData": [
+      {
+        "key": "zTicks0",
+        "line": {
+          "start": "0 0 0.1190476190476191",
+          "end": "0 -0.025 0.1190476190476191",
+          "color": "#000000"
+        }
+      },
+      {
+        "key": "zTicks1",
+        "line": {
+          "start": "0 0 0.30952380952380953",
+          "end": "0 -0.025 0.30952380952380953",
+          "color": "#000000"
+        }
+      },
+      {
+        "key": "zTicks2",
+        "line": {
+          "start": "0 0 0.5",
+          "end": "0 -0.025 0.5",
+          "color": "#000000"
+        }
+      },
+      {
+        "key": "zTicks3",
+        "line": {
+          "start": "0 0 0.6904761904761905",
+          "end": "0 -0.025 0.6904761904761905",
+          "color": "#000000"
+        }
+      },
+      {
+        "key": "zTicks4",
+        "line": {
+          "start": "0 0 0.8809523809523809",
+          "end": "0 -0.025 0.8809523809523809",
+          "color": "#000000"
+        }
+      }
+    ],
+    "tickTextData": [
+      {
+        "key": "zTickText0",
+        "text": {
+          "width": 0.6,
+          "value": "A",
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "0 -0.035 0.1190476190476191",
+        "rotation": "0 -90 90"
+      },
+      {
+        "key": "zTickText1",
+        "text": {
+          "width": 0.6,
+          "value": "B",
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "0 -0.035 0.30952380952380953",
+        "rotation": "0 -90 90"
+      },
+      {
+        "key": "zTickText2",
+        "text": {
+          "width": 0.6,
+          "value": "C",
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "0 -0.035 0.5",
+        "rotation": "0 -90 90"
+      },
+      {
+        "key": "zTickText3",
+        "text": {
+          "width": 0.6,
+          "value": "D",
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "0 -0.035 0.6904761904761905",
+        "rotation": "0 -90 90"
+      },
+      {
+        "key": "zTickText4",
+        "text": {
+          "width": 0.6,
+          "value": "E",
+          "color": "#000000",
+          "side": "front",
+          "anchor": "align",
+          "align": "right"
+        },
+        "position": "0 -0.035 0.8809523809523809",
+        "rotation": "0 -90 90"
+      }
+    ],
+    "titleData": {
+      "text": {
+        "width": 1,
+        "value": "c",
+        "color": "#000000",
+        "side": "front",
+        "anchor": "align",
+        "align": "center"
+      },
+      "position": "0 -0.2 0.5",
+      "rotation": "0 -90 0"
+    }
   },
   "marks": [
     {
@@ -179,5 +768,7 @@
       "opacity": 1,
       "events": {}
     }
-  ]
+  ],
+  "markShape": "box",
+  "markType": "bar"
 }

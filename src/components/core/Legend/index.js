@@ -9,6 +9,7 @@ import SymbolLegend from './SymbolLegend';
 
 const Legend = (props) => {
   log.debug('Legend Rendering');
+  // log.debug('test Rendering')
   const {
     view,
     channel,
@@ -93,6 +94,12 @@ const Legend = (props) => {
 
   // Title
   const legendTitle = c.legend?.title || c.field;
+
+  // print the legend data
+  log.debug(posrot);
+  log.debug(props);
+  log.debug(legendTitle);
+
 
   // Return legend type
   return c.type === 'quantitative' ? (

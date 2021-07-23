@@ -7,6 +7,7 @@ import { XAxis, YAxis, ZAxis } from './axes';
 import { log } from '../../../utils';
 
 import { defaults } from '../../../grammar/defaults';
+import { chartData } from '..';
 
 const Axes = (props) => {
   log.debug('Axes Rendering');
@@ -46,6 +47,7 @@ const Axes = (props) => {
       }
     }
     log.debug("OUTPUT", "title_data", title_data);
+    chartData["title"] = title_data;
     return title;
   };
 
@@ -143,6 +145,7 @@ const Axes = (props) => {
               'titlePadding': view.encoding[channel]?.axis?.titlePadding,
               'labels': view.encoding[channel]?.axis?.labels,
               'ticks': view.encoding[channel]?.axis?.ticks,
+              'ticksData': view.encoding[channel]?.axis.ticksData,
               'position': `0 0 ${xFace}`
             })
 

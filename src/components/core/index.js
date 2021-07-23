@@ -3,3 +3,6 @@ export { default as Legend } from './Legend';
 export { default as Axes } from './Axes';
 export { default as AxisFilters } from './AxisFilters';
 export { default as Marks } from './Marks';
+
+const chartData = { key: "chartData" };
+export { chartData };

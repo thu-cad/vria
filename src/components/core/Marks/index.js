@@ -10,6 +10,7 @@ import { log } from '../../../utils';
 
 import { DispatchContext } from '../../../reducer';
 import { actionTypes } from '../../../actions';
+import { chartData } from '..';
 
 const Marks = (props) => {
   log.debug('Marks Rendering');
@@ -832,7 +833,12 @@ const Marks = (props) => {
   });
 
 
-  log.debug('OUTPUT', 'marks_data', marks_data);
+  chartData["marks"] = marks_data;
+  chartData["markShape"] = markShape;
+  chartData["markType"] = markType;
+  log.debug("OUTPUT", "marks", marks);
+  log.debug("OUTPUT", "markShape", markShape);
+  log.debug("OUTPUT", "markType", markType);
   return <Entity className='marks'>{marks}</Entity>;
 };
 

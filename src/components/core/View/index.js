@@ -3,17 +3,19 @@ import PropTypes from 'prop-types';
 import { Entity } from 'aframe-react';
 
 import { defaults } from '../../../grammar/defaults';
+import { log } from '../../../utils';
 
 import Legend from '../Legend';
 import Axes from '../Axes';
 import AxisFilters from '../AxisFilters';
 import Marks from '../Marks';
+import { chartData } from '..';
+
 
 const View = (props) => {
   const { view, scales, index } = props;
-  const position = `${view.x} ${view.y + defaults.options.userHeight} ${
-    view.z
-  }`;
+  const position = `${view.x} ${view.y + defaults.options.userHeight} ${view.z
+    }`;
   const rotation = `${view.xrotation} ${view.yrotation} ${view.zrotation}`;
   const { width, height, depth } = view;
 
@@ -46,6 +48,8 @@ const View = (props) => {
     options: props.options
   };
 
+
+  log.debug("OUTPUT", "chartData", chartData);
   return (
     <Entity
       className={`vria-view-${index}`}
@@ -60,6 +64,7 @@ const View = (props) => {
       <Marks {...markProps} />
     </Entity>
   );
+
 };
 
 View.propTypes = {

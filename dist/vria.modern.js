@@ -3554,6 +3554,9 @@ const Legend = props => {
     zrot
   };
   const legendTitle = ((_c$legend = c.legend) === null || _c$legend === void 0 ? void 0 : _c$legend.title) || c.field;
+  log.debug(posrot);
+  log.debug(props);
+  log.debug(legendTitle);
   return c.type === 'quantitative' ? /*#__PURE__*/React.createElement(GradientLegend, {
     options: options,
     scales: scales,
@@ -3627,6 +3630,18 @@ const XAxis = props => {
     }
   }));
 
+  const axisTicksData = () => tickValues.map((tick, i) => ({
+    key: `xTicks${i}`,
+    line: {
+      start: `${scales.x(tick) + tickOffset} 0 ${rangesMax.z}`,
+      end: `${scales.x(tick) + tickOffset} -0.025 ${rangesMax.z}`,
+      color: color,
+      tick: tick,
+      scaleTick: scales.x(tick),
+      scaleX: scales.x
+    }
+  }));
+
   const axisTickText = () => tickValues.map((tick, i) => {
     let value = tick;
 
@@ -3649,6 +3664,28 @@ const XAxis = props => {
     });
   });
 
+  const axisTickTextData = () => tickValues.map((tick, i) => {
+    let value = tick;
+
+    if (typeof value === 'number' && typeof numberFormat === 'string') {
+      value = format(numberFormat)(tick);
+    }
+
+    return {
+      key: `xTickText${i}`,
+      text: {
+        width: 0.6,
+        value: value,
+        color: color,
+        side: 'front',
+        anchor: 'align',
+        align: 'right'
+      },
+      position: `${scales.x(tick) + tickOffset} -0.035 ${rangesMax.z}`,
+      rotation: '0 0 90'
+    };
+  });
+
   const axisTitle = () => /*#__PURE__*/React.createElement(Entity, {
     text: {
       width: rangesMax.x,
@@ -3662,8 +3699,34 @@ const XAxis = props => {
     rotation: "0 0 0"
   });
 
+  const axisTitleData = () => ({
+    text: {
+      width: rangesMax.x,
+      value: title,
+      color: color,
+      side: 'front',
+      anchor: 'align',
+      align: 'center'
+    },
+    position: `${rangesMax.x / 2} ${titlePadding !== null ? -titlePadding : -0.22} ${rangesMax.z}`,
+    rotation: '0 0 0'
+  });
+
   const showLabels = labels === false ? labels : defaults.view.encoding.axis.labels;
   const showTicks = ticks === false ? ticks : defaults.view.encoding.axis.ticks;
+
+  const axisData = () => ({ ...props,
+    axis: 'x',
+    start: `0 0 ${rangesMax.z}`,
+    end: `${rangesMax.x} 0 ${rangesMax.z}`,
+    color: color,
+    ticksData: showTicks ? axisTicksData() : null,
+    titleData: showTicks ? axisTitleData() : null,
+    tickTextData: showTicks ? axisTickTextData() : null
+  });
+
+  chartData["xAxis"] = axisData();
+  log.debug("OUTPUT", "xAxis", axisData());
   return /*#__PURE__*/React.createElement(Axis, Object.assign({}, props, {
     axis: "x",
     start: `0 0 ${rangesMax.z}`,
@@ -3697,6 +3760,15 @@ const YAxis = props => {
     }
   }));
 
+  const axisTicksData = () => tickValues.map((tick, i) => ({
+    key: `yTicks${i}`,
+    line: {
+      start: `0 ${scales.y(tick) + tickOffset} 0`,
+      end: `-0.025 ${scales.y(tick) + tickOffset} 0`,
+      color: color
+    }
+  }));
+
   const axisTickText = () => tickValues.map((tick, i) => {
     let value = tick;
 
@@ -3719,6 +3791,28 @@ const YAxis = props => {
     });
   });
 
+  const axisTickTextData = () => tickValues.map((tick, i) => {
+    let value = tick;
+
+    if (typeof value === 'number' && typeof numberFormat === 'string') {
+      value = format(numberFormat)(tick);
+    }
+
+    return {
+      key: `yTickText${i}`,
+      text: {
+        width: 0.6,
+        value: value,
+        color: color,
+        side: 'front',
+        anchor: 'align',
+        align: 'right'
+      },
+      position: `-0.035 ${scales.y(tick) + tickOffset} 0`,
+      rotation: '0 0 0'
+    };
+  });
+
   const axisTitle = () => /*#__PURE__*/React.createElement(Entity, {
     text: {
       width: rangesMax.y,
@@ -3732,8 +3826,34 @@ const YAxis = props => {
     rotation: "0 0 90"
   });
 
+  const axisTitleData = () => ({
+    text: {
+      width: rangesMax.y,
+      value: title,
+      color: color,
+      side: 'front',
+      anchor: 'align',
+      align: 'center'
+    },
+    position: `${titlePadding !== null ? -titlePadding : -0.22} ${rangesMax.y / 2} 0`,
+    rotation: `0 0 90`
+  });
+
   const showLabels = labels === false ? labels : defaults.view.encoding.axis.labels;
   const showTicks = ticks === false ? ticks : defaults.view.encoding.axis.ticks;
+
+  const axisData = () => ({ ...props,
+    axis: 'y',
+    start: '0 0 0',
+    end: `0 ${rangesMax.y} 0`,
+    color: color,
+    ticksData: showTicks ? axisTicksData() : null,
+    tickTextData: showTicks ? axisTickTextData() : null,
+    titleData: showTicks ? axisTitleData() : null
+  });
+
+  chartData["yAxis"] = axisData();
+  log.debug("OUTPUT", "yAxis", axisData());
   return /*#__PURE__*/React.createElement(Axis, Object.assign({}, props, {
     axis: "y",
     start: "0 0 0",
@@ -3767,6 +3887,15 @@ const ZAxis = props => {
     }
   }));
 
+  const axisTicksData = () => tickValues.map((tick, i) => ({
+    key: `zTicks${i}`,
+    line: {
+      start: `0 0 ${scales.z(tick) + tickOffset}`,
+      end: `0 -0.025 ${scales.z(tick) + tickOffset}`,
+      color: color
+    }
+  }));
+
   const axisTickText = () => tickValues.map((tick, i) => {
     let value = tick;
 
@@ -3789,6 +3918,28 @@ const ZAxis = props => {
     });
   });
 
+  const axisTickTextData = () => tickValues.map((tick, i) => {
+    let value = tick;
+
+    if (typeof value === 'number' && typeof numberFormat === 'string') {
+      value = format(numberFormat)(tick);
+    }
+
+    return {
+      key: `zTickText${i}`,
+      text: {
+        width: 0.6,
+        value: value,
+        color: color,
+        side: 'front',
+        anchor: 'align',
+        align: 'right'
+      },
+      position: `0 -0.035 ${scales.z(tick) + tickOffset}`,
+      rotation: '0 -90 90'
+    };
+  });
+
   const axisTitle = () => /*#__PURE__*/React.createElement(Entity, {
     text: {
       width: rangesMax.z,
@@ -3802,8 +3953,34 @@ const ZAxis = props => {
     rotation: "0 -90 0"
   });
 
+  const axisTitleData = () => ({
+    text: {
+      width: rangesMax.z,
+      value: title,
+      color: color,
+      side: 'front',
+      anchor: 'align',
+      align: 'center'
+    },
+    position: `0 ${titlePadding !== null ? -titlePadding : -0.22} ${rangesMax.z / 2}`,
+    rotation: '0 -90 0'
+  });
+
   const showLabels = labels === false ? labels : defaults.view.encoding.axis.labels;
   const showTicks = ticks === false ? ticks : defaults.view.encoding.axis.ticks;
+
+  const axisData = () => ({ ...props,
+    axis: 'z',
+    start: '0 0 0',
+    end: `0 0 ${rangesMax.z}`,
+    color: color,
+    ticksData: showTicks ? axisTicksData() : null,
+    tickTextData: showTicks ? axisTickTextData() : null,
+    titleData: showTicks ? axisTitleData() : null
+  });
+
+  chartData["zAxis"] = axisData();
+  log.debug("OUTPUT", "zAxis", axisData());
   return /*#__PURE__*/React.createElement(Axis, Object.assign({}, props, {
     axis: "z",
     start: "0 0 0",
@@ -3826,6 +4003,7 @@ const Axes = props => {
 
   const generateTitle = () => {
     let title;
+    let title_data;
 
     if (view.title) {
       title = /*#__PURE__*/React.createElement(Entity, {
@@ -3839,15 +4017,29 @@ const Axes = props => {
         },
         position: `${rangesMax.x / 2 || 0} ${rangesMax.y ? rangesMax.y + view.titlePadding : view.titlePadding} 0`
       });
+      title_data = {
+        text: {
+          'width': rangesMax.x,
+          'value': view.title,
+          'color': options.chartColor,
+          'side': 'front',
+          'anchor': 'align',
+          'align': 'center'
+        },
+        'position': `${rangesMax.x / 2 || 0} ${rangesMax.y ? rangesMax.y + view.titlePadding : view.titlePadding} 0`
+      };
     }
 
+    log.debug("OUTPUT", "title_data", title_data);
+    chartData["title"] = title_data;
     return title;
   };
 
   const generateAxes = () => {
     const axes = [];
+    const axis_data = [];
     ['x', 'y', 'z'].forEach(channel => {
-      var _view$encoding$channe, _view$encoding$channe11, _view$encoding$channe12, _view$encoding$channe13, _view$encoding$channe14, _view$encoding$channe15, _view$encoding$channe16, _view$encoding$channe17, _view$encoding$channe18, _view$encoding$channe19, _view$encoding$channe20, _view$encoding$channe21, _view$encoding$channe22, _view$encoding$channe23, _view$encoding$channe24, _view$encoding$channe25, _view$encoding$channe26, _view$encoding$channe27, _view$encoding$channe28;
+      var _view$encoding$channe, _view$encoding$channe11, _view$encoding$channe12, _view$encoding$channe13, _view$encoding$channe14, _view$encoding$channe15, _view$encoding$channe16, _view$encoding$channe17, _view$encoding$channe18, _view$encoding$channe19, _view$encoding$channe20, _view$encoding$channe21, _view$encoding$channe22, _view$encoding$channe23, _view$encoding$channe24, _view$encoding$channe25, _view$encoding$channe26, _view$encoding$channe27, _view$encoding$channe28, _view$encoding$channe29, _view$encoding$channe30, _view$encoding$channe31, _view$encoding$channe32, _view$encoding$channe33, _view$encoding$channe34, _view$encoding$channe35, _view$encoding$channe36, _view$encoding$channe37, _view$encoding$channe38, _view$encoding$channe39, _view$encoding$channe40, _view$encoding$channe41, _view$encoding$channe42, _view$encoding$channe43, _view$encoding$channe44, _view$encoding$channe45, _view$encoding$channe46, _view$encoding$channe47;
 
       if (view.encoding[channel] && ((_view$encoding$channe = view.encoding[channel]) === null || _view$encoding$channe === void 0 ? void 0 : _view$encoding$channe.axis) !== false) {
         var _view$encoding$channe2, _view$encoding$channe5, _view$encoding$channe6, _view$encoding$channe7, _view$encoding$channe8, _view$encoding$channe9, _view$encoding$channe10;
@@ -3903,6 +4095,22 @@ const Axes = props => {
               ticks: (_view$encoding$channe15 = view.encoding[channel]) === null || _view$encoding$channe15 === void 0 ? void 0 : (_view$encoding$channe16 = _view$encoding$channe15.axis) === null || _view$encoding$channe16 === void 0 ? void 0 : _view$encoding$channe16.ticks,
               position: `0 0 ${xFace}`
             }));
+            axis_data.push({
+              'key': 'xAxis',
+              'title': title,
+              'numberFormat': view.encoding[channel].numberFormat,
+              'tickValues': tickValues,
+              'tickOffset': tickOffset,
+              'scales': scales,
+              'rangesMax': rangesMax,
+              'color': options.chartColor,
+              'title': title,
+              'titlePadding': (_view$encoding$channe17 = view.encoding[channel]) === null || _view$encoding$channe17 === void 0 ? void 0 : (_view$encoding$channe18 = _view$encoding$channe17.axis) === null || _view$encoding$channe18 === void 0 ? void 0 : _view$encoding$channe18.titlePadding,
+              'labels': (_view$encoding$channe19 = view.encoding[channel]) === null || _view$encoding$channe19 === void 0 ? void 0 : (_view$encoding$channe20 = _view$encoding$channe19.axis) === null || _view$encoding$channe20 === void 0 ? void 0 : _view$encoding$channe20.labels,
+              'ticks': (_view$encoding$channe21 = view.encoding[channel]) === null || _view$encoding$channe21 === void 0 ? void 0 : (_view$encoding$channe22 = _view$encoding$channe21.axis) === null || _view$encoding$channe22 === void 0 ? void 0 : _view$encoding$channe22.ticks,
+              'ticksData': (_view$encoding$channe23 = view.encoding[channel]) === null || _view$encoding$channe23 === void 0 ? void 0 : _view$encoding$channe23.axis.ticksData,
+              'position': `0 0 ${xFace}`
+            });
             break;
 
           case 'y':
@@ -3916,11 +4124,26 @@ const Axes = props => {
               rangesMax: rangesMax,
               color: options.chartColor,
               title: title,
-              titlePadding: (_view$encoding$channe17 = view.encoding[channel]) === null || _view$encoding$channe17 === void 0 ? void 0 : (_view$encoding$channe18 = _view$encoding$channe17.axis) === null || _view$encoding$channe18 === void 0 ? void 0 : _view$encoding$channe18.titlePadding,
-              labels: (_view$encoding$channe19 = view.encoding[channel]) === null || _view$encoding$channe19 === void 0 ? void 0 : (_view$encoding$channe20 = _view$encoding$channe19.axis) === null || _view$encoding$channe20 === void 0 ? void 0 : _view$encoding$channe20.labels,
-              ticks: (_view$encoding$channe21 = view.encoding[channel]) === null || _view$encoding$channe21 === void 0 ? void 0 : (_view$encoding$channe22 = _view$encoding$channe21.axis) === null || _view$encoding$channe22 === void 0 ? void 0 : _view$encoding$channe22.ticks,
+              titlePadding: (_view$encoding$channe24 = view.encoding[channel]) === null || _view$encoding$channe24 === void 0 ? void 0 : (_view$encoding$channe25 = _view$encoding$channe24.axis) === null || _view$encoding$channe25 === void 0 ? void 0 : _view$encoding$channe25.titlePadding,
+              labels: (_view$encoding$channe26 = view.encoding[channel]) === null || _view$encoding$channe26 === void 0 ? void 0 : (_view$encoding$channe27 = _view$encoding$channe26.axis) === null || _view$encoding$channe27 === void 0 ? void 0 : _view$encoding$channe27.labels,
+              ticks: (_view$encoding$channe28 = view.encoding[channel]) === null || _view$encoding$channe28 === void 0 ? void 0 : (_view$encoding$channe29 = _view$encoding$channe28.axis) === null || _view$encoding$channe29 === void 0 ? void 0 : _view$encoding$channe29.ticks,
               position: `0 0 ${yFace}`
             }));
+            axis_data.push({
+              'key': 'yAxis',
+              'title': title,
+              'numberFormat': view.encoding[channel].numberFormat,
+              'tickValues': tickValues,
+              'tickOffset': tickOffset,
+              'scales': scales,
+              'rangesMax': rangesMax,
+              'color': options.chartColor,
+              'title': title,
+              'titlePadding': (_view$encoding$channe30 = view.encoding[channel]) === null || _view$encoding$channe30 === void 0 ? void 0 : (_view$encoding$channe31 = _view$encoding$channe30.axis) === null || _view$encoding$channe31 === void 0 ? void 0 : _view$encoding$channe31.titlePadding,
+              'labels': (_view$encoding$channe32 = view.encoding[channel]) === null || _view$encoding$channe32 === void 0 ? void 0 : (_view$encoding$channe33 = _view$encoding$channe32.axis) === null || _view$encoding$channe33 === void 0 ? void 0 : _view$encoding$channe33.labels,
+              'ticks': (_view$encoding$channe34 = view.encoding[channel]) === null || _view$encoding$channe34 === void 0 ? void 0 : (_view$encoding$channe35 = _view$encoding$channe34.axis) === null || _view$encoding$channe35 === void 0 ? void 0 : _view$encoding$channe35.ticks,
+              'position': `0 0 ${yFace}`
+            });
             break;
 
           case 'z':
@@ -3934,15 +4157,31 @@ const Axes = props => {
               rangesMax: rangesMax,
               color: options.chartColor,
               title: title,
-              titlePadding: (_view$encoding$channe23 = view.encoding[channel]) === null || _view$encoding$channe23 === void 0 ? void 0 : (_view$encoding$channe24 = _view$encoding$channe23.axis) === null || _view$encoding$channe24 === void 0 ? void 0 : _view$encoding$channe24.titlePadding,
-              labels: (_view$encoding$channe25 = view.encoding[channel]) === null || _view$encoding$channe25 === void 0 ? void 0 : (_view$encoding$channe26 = _view$encoding$channe25.axis) === null || _view$encoding$channe26 === void 0 ? void 0 : _view$encoding$channe26.labels,
-              ticks: (_view$encoding$channe27 = view.encoding[channel]) === null || _view$encoding$channe27 === void 0 ? void 0 : (_view$encoding$channe28 = _view$encoding$channe27.axis) === null || _view$encoding$channe28 === void 0 ? void 0 : _view$encoding$channe28.ticks,
+              titlePadding: (_view$encoding$channe36 = view.encoding[channel]) === null || _view$encoding$channe36 === void 0 ? void 0 : (_view$encoding$channe37 = _view$encoding$channe36.axis) === null || _view$encoding$channe37 === void 0 ? void 0 : _view$encoding$channe37.titlePadding,
+              labels: (_view$encoding$channe38 = view.encoding[channel]) === null || _view$encoding$channe38 === void 0 ? void 0 : (_view$encoding$channe39 = _view$encoding$channe38.axis) === null || _view$encoding$channe39 === void 0 ? void 0 : _view$encoding$channe39.labels,
+              ticks: (_view$encoding$channe40 = view.encoding[channel]) === null || _view$encoding$channe40 === void 0 ? void 0 : (_view$encoding$channe41 = _view$encoding$channe40.axis) === null || _view$encoding$channe41 === void 0 ? void 0 : _view$encoding$channe41.ticks,
               position: `${zFace} 0 0`
             }));
+            axis_data.push({
+              'key': 'zAxis',
+              'title': title,
+              'numberFormat': view.encoding[channel].numberFormat,
+              'tickValues': tickValues,
+              'tickOffset': tickOffset,
+              'scales': scales,
+              'rangesMax': rangesMax,
+              'color': options.chartColor,
+              'title': title,
+              'titlePadding': (_view$encoding$channe42 = view.encoding[channel]) === null || _view$encoding$channe42 === void 0 ? void 0 : (_view$encoding$channe43 = _view$encoding$channe42.axis) === null || _view$encoding$channe43 === void 0 ? void 0 : _view$encoding$channe43.titlePadding,
+              'labels': (_view$encoding$channe44 = view.encoding[channel]) === null || _view$encoding$channe44 === void 0 ? void 0 : (_view$encoding$channe45 = _view$encoding$channe44.axis) === null || _view$encoding$channe45 === void 0 ? void 0 : _view$encoding$channe45.labels,
+              'ticks': (_view$encoding$channe46 = view.encoding[channel]) === null || _view$encoding$channe46 === void 0 ? void 0 : (_view$encoding$channe47 = _view$encoding$channe46.axis) === null || _view$encoding$channe47 === void 0 ? void 0 : _view$encoding$channe47.ticks,
+              'position': `0 0 ${zFace}`
+            });
             break;
         }
       }
     });
+    log.debug('OUTPUT', 'axis_data', axis_data);
     return axes;
   };
 
@@ -4200,6 +4439,7 @@ const Marks = props => {
   const dispatch = useContext(DispatchContext);
   const markType = view.mark.type;
   const markShape = view.mark.shape;
+  const marks_data = [];
   const marks = dataset.map((row, i) => {
     const vriaid = `vria-${row.vriaid}`;
     let tooltipContent = '';
@@ -4368,6 +4608,29 @@ const Marks = props => {
                 opacity: attributes.opacity,
                 events: markEvents
               });
+              marks_data.push({
+                'key': i,
+                'tooltipContent': tooltipContent,
+                'tooltipHeight': tooltipHeight,
+                'primitive': 'a-sphere',
+                'className': `interactive vria-mark ${vriaid}`,
+                'data-mark': JSON.stringify(row),
+                'radius': '0.5',
+                'scale': {
+                  x: attributes.width || radius,
+                  y: attributes.height || radius,
+                  z: attributes.depth || radius
+                },
+                'segments-height': '9',
+                'segments-width': '18',
+                'color': attributes.color,
+                'initialColor': attributes.color,
+                'position': attributes.position,
+                'rotation': attributes.rotation,
+                'initialOpacity': attributes.opacity,
+                'opacity': attributes.opacity,
+                'events': markEvents
+              });
               break;
 
             case 'box':
@@ -4393,6 +4656,29 @@ const Marks = props => {
                 initialOpacity: attributes.opacity,
                 opacity: attributes.opacity,
                 events: markEvents
+              });
+              marks_data.push({
+                'key': i,
+                'tooltipContent': tooltipContent,
+                'tooltipHeight': tooltipHeight,
+                'primitive': 'a-box',
+                'className': `interactive vria-mark ${vriaid}`,
+                'data-mark': JSON.stringify(row),
+                'scale': {
+                  x: attributes.width || radius,
+                  y: attributes.height || radius,
+                  z: attributes.depth || radius
+                },
+                'width': '1',
+                'height': '1',
+                'depth': '1',
+                'color': attributes.color,
+                'initialColor': attributes.color,
+                'position': attributes.position,
+                'rotation': attributes.rotation,
+                'initialOpacity': attributes.opacity,
+                'opacity': attributes.opacity,
+                'events': markEvents
               });
               break;
 
@@ -4422,6 +4708,31 @@ const Marks = props => {
                 opacity: attributes.opacity,
                 events: markEvents
               });
+              marks_data.push({
+                'key': i,
+                'tooltipContent': tooltipContent,
+                'tooltipHeight': tooltipHeight,
+                'primitive': 'a-cone',
+                'className': `interactive vria-mark ${vriaid}`,
+                'data-mark': JSON.stringify(row),
+                'height': '1',
+                'scale': {
+                  x: attributes.width || radius,
+                  y: attributes.height || radius,
+                  z: attributes.depth || radius
+                },
+                'color': attributes.color,
+                'initialColor': attributes.color,
+                'position': attributes.position,
+                'rotation': attributes.rotation,
+                'segments-height': '9',
+                'segments-radial': '18',
+                'radius-top': '0',
+                'radius-bottom': '0.5',
+                'initialOpacity': attributes.opacity,
+                'opacity': attributes.opacity,
+                'events': markEvents
+              });
               break;
 
             case 'tetrahedron':
@@ -4445,6 +4756,27 @@ const Marks = props => {
                 initialOpacity: attributes.opacity,
                 opacity: attributes.opacity,
                 events: markEvents
+              });
+              marks_data.push({
+                'key': i,
+                'tooltipContent': tooltipContent,
+                'tooltipHeight': tooltipHeight,
+                'primitive': 'a-tetrahedron',
+                'className': `interactive vria-mark ${vriaid}`,
+                'data-mark': JSON.stringify(row),
+                'radius': '1',
+                'scale': {
+                  x: attributes.width || radius,
+                  y: attributes.height || radius,
+                  z: attributes.depth || radius
+                },
+                'color': attributes.color,
+                'initialColor': attributes.color,
+                'position': attributes.position,
+                'rotation': attributes.rotation,
+                'initialOpacity': attributes.opacity,
+                'opacity': attributes.opacity,
+                'events': markEvents
               });
               break;
 
@@ -4473,6 +4805,30 @@ const Marks = props => {
                 opacity: attributes.opacity,
                 events: markEvents
               });
+              marks_data.push({
+                'key': i,
+                'tooltipContent': tooltipContent,
+                'tooltipHeight': tooltipHeight,
+                'primitive': 'a-torus',
+                'className': `interactive vria-mark ${vriaid}`,
+                'data-mark': JSON.stringify(row),
+                'radius': '0.5',
+                'radius-tubular': '0.05',
+                'scale': {
+                  x: attributes.width || radius,
+                  y: attributes.height || radius,
+                  z: attributes.depth || radius
+                },
+                'segments-radial': '18',
+                'segments-tubular': '16',
+                'color': attributes.color,
+                'initialColor': attributes.color,
+                'position': attributes.position,
+                'rotation': attributes.rotation,
+                'initialOpacity': attributes.opacity,
+                'opacity': attributes.opacity,
+                'events': markEvents
+              });
               break;
 
             case 'cylinder':
@@ -4492,6 +4848,23 @@ const Marks = props => {
                 initialOpacity: attributes.opacity,
                 opacity: attributes.opacity,
                 events: markEvents
+              });
+              marks_data.push({
+                'key': i,
+                'tooltipContent': tooltipContent,
+                'tooltipHeight': tooltipHeight,
+                'primitive': 'a-cylinder',
+                'className': `interactive vria-mark ${vriaid}`,
+                'data-mark': JSON.stringify(row),
+                'rotation': attributes.rotation,
+                'radius': attributes.width / 2 || 0.05,
+                'height': attributes.depth !== 0 ? attributes.depth : 0.001,
+                'color': attributes.color,
+                'initialColor': attributes.color,
+                'position': attributes.position,
+                'initialOpacity': attributes.opacity,
+                'opacity': attributes.opacity,
+                'events': markEvents
               });
               break;
 
@@ -4615,6 +4988,23 @@ const Marks = props => {
                   opacity: attributes.opacity,
                   events: markEvents
                 });
+                marks_data.push({
+                  'key': i,
+                  'tooltipContent': tooltipContent,
+                  'tooltipHeight': tooltipHeight,
+                  'position': attributes.position,
+                  'primitive': 'a-box',
+                  'className': `interactive vria-mark ${vriaid}`,
+                  'data-mark': JSON.stringify(row),
+                  'width': width,
+                  'height': height,
+                  'depth': depth,
+                  'color': attributes.color,
+                  'initialColor': attributes.color,
+                  'initialOpacity': attributes.opacity,
+                  'opacity': attributes.opacity,
+                  'events': markEvents
+                });
                 break;
 
               case 'plane':
@@ -4638,6 +5028,23 @@ const Marks = props => {
                   opacity: attributes.opacity,
                   events: markEvents
                 });
+                marks_data.push({
+                  'key': i,
+                  'tooltipContent': tooltipContent,
+                  'tooltipHeight': tooltipHeight,
+                  'primitive': 'a-cylinder',
+                  'className': `interactive vria-mark ${vriaid}`,
+                  'data-mark': JSON.stringify(row),
+                  'rotation': '0 0 0',
+                  'radius': width / 2,
+                  'height': height,
+                  'color': attributes.color,
+                  'initialColor': attributes.color,
+                  'position': attributes.position,
+                  'initialOpacity': attributes.opacity,
+                  'opacity': attributes.opacity,
+                  'events': markEvents
+                });
                 break;
 
               case 'cone':
@@ -4660,6 +5067,26 @@ const Marks = props => {
                   initialOpacity: attributes.opacity,
                   opacity: attributes.opacity,
                   events: markEvents
+                });
+                marks_data.push({
+                  'key': i,
+                  'tooltipContent': tooltipContent,
+                  'tooltipHeight': tooltipHeight,
+                  'primitive': 'a-cone',
+                  'className': `interactive vria-mark ${vriaid}`,
+                  'data-mark': JSON.stringify(row),
+                  'height': height,
+                  'color': attributes.color,
+                  'initialColor': attributes.color,
+                  'position': attributes.position,
+                  'rotation': attributes.rotation,
+                  'segments-height': '9',
+                  'segments-radial': '18',
+                  'radius-top': '0',
+                  'radius-bottom': min([scales.x.bandwidth() / 2, scales.z.bandwidth() / 2]),
+                  'initialOpacity': attributes.opacity,
+                  'opacity': attributes.opacity,
+                  'events': markEvents
                 });
                 break;
 
@@ -4703,6 +5130,12 @@ const Marks = props => {
 
     return mark;
   });
+  chartData["marks"] = marks_data;
+  chartData["markShape"] = markShape;
+  chartData["markType"] = markType;
+  log.debug("OUTPUT", "marks", marks);
+  log.debug("OUTPUT", "markShape", markShape);
+  log.debug("OUTPUT", "markType", markType);
   return /*#__PURE__*/React.createElement(Entity, {
     className: "marks"
   }, marks);
@@ -4751,6 +5184,7 @@ const View = props => {
     scales: props.scales,
     options: props.options
   };
+  log.debug("OUTPUT", "chartData", chartData);
   return /*#__PURE__*/React.createElement(Entity, {
     className: `vria-view-${index}`,
     position: position,
@@ -4772,6 +5206,10 @@ View.propTypes = {
   parsedDataset: PropTypes.array.isRequired,
   scales: PropTypes.object.isRequired,
   domainMap: PropTypes.object.isRequired
+};
+
+const chartData = {
+  key: "chartData"
 };
 
 const Camera = props => {
