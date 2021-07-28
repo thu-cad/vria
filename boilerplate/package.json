@@ -10,8 +10,10 @@
     "eject": "node ../node_modules/react-scripts/bin/react-scripts.js eject"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
     "aframe-environment-component": "^2.0.0",
     "aframe-react": "^4.4.0",
+    "express": "^4.17.1",
     "is-core-module": "^2.5.0",
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",

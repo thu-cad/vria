@@ -3,6 +3,9 @@ import { Scene, Entity } from 'aframe-react';
 import 'aframe-environment-component';
 
 import VRIA from 'vria';
+import { chartData } from "vria";
+
+console.log(chartData);
 
 const App = () => (
   <Scene>
@@ -28,14 +31,26 @@ const App = () => (
       }}
     />
 
-    {/*
-        Include an environment in your scene with the aframe-environment-component
-        For available presets and API see:
-        https://github.com/supermedium/aframe-environment-component
+    <p>{chartData.key}</p>
 
-        <Entity environment={{ preset: 'default' }}/>
-      */}
-  </Scene>
+    // {/*
+    //     Include an environment in your scene with the aframe-environment-component
+    //     For available presets and API see:
+    //     https://github.com/supermedium/aframe-environment-component
+    //
+    //     <Entity environment={{ preset: 'default' }}/>
+    //   */}
+  // </Scene>
 );
 
+// const App = (chart_data) =>(
+//   <Scene>
+//     <VRIA
+//       position={chart_data['position']}
+//       config={chart_data['config']}
+//       />
+//   </Scene>
+// )
+
+console.log(chartData);
 export default App;
