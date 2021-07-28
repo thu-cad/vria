@@ -29,16 +29,22 @@ const generate_chart = (chart_data) =>  (
 // 建立websocket连接
 let ws = new WebSocket('ws://localhost:3002/');
 ws.onopen = function(){
-  setInterval(function(){
-    ws.send(JSON.stringify(chartData));
-  },2000);
+  // setInterval(function(){
+  //   ws.send(JSON.stringify(chartData));
+  // },2000);
 }
 
 ws.onmessage = function(e){
+  console.log("收到ws消息");
   let chart_data = JSON.parse(e.data);
   console.log(chart_data);
+  let old_chartData = chartData;
   ReactDOM.render(generate_chart(chart_data), document.getElementById('root'));
-  ws.send(JSON.stringify(chartData));
+  setTimeout(function(){
+    console.log(chartData);
+    ws.send(JSON.stringify(chartData));
+  }, 10);
+  // ws.send(JSON.stringify(chartData));
 }
 
 // 创建服务器
