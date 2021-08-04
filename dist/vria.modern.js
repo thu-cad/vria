@@ -4104,7 +4104,6 @@ const Axes = props => {
               'scales': scales,
               'rangesMax': rangesMax,
               'color': options.chartColor,
-              'title': title,
               'titlePadding': (_view$encoding$channe17 = view.encoding[channel]) === null || _view$encoding$channe17 === void 0 ? void 0 : (_view$encoding$channe18 = _view$encoding$channe17.axis) === null || _view$encoding$channe18 === void 0 ? void 0 : _view$encoding$channe18.titlePadding,
               'labels': (_view$encoding$channe19 = view.encoding[channel]) === null || _view$encoding$channe19 === void 0 ? void 0 : (_view$encoding$channe20 = _view$encoding$channe19.axis) === null || _view$encoding$channe20 === void 0 ? void 0 : _view$encoding$channe20.labels,
               'ticks': (_view$encoding$channe21 = view.encoding[channel]) === null || _view$encoding$channe21 === void 0 ? void 0 : (_view$encoding$channe22 = _view$encoding$channe21.axis) === null || _view$encoding$channe22 === void 0 ? void 0 : _view$encoding$channe22.ticks,
@@ -4138,7 +4137,6 @@ const Axes = props => {
               'scales': scales,
               'rangesMax': rangesMax,
               'color': options.chartColor,
-              'title': title,
               'titlePadding': (_view$encoding$channe30 = view.encoding[channel]) === null || _view$encoding$channe30 === void 0 ? void 0 : (_view$encoding$channe31 = _view$encoding$channe30.axis) === null || _view$encoding$channe31 === void 0 ? void 0 : _view$encoding$channe31.titlePadding,
               'labels': (_view$encoding$channe32 = view.encoding[channel]) === null || _view$encoding$channe32 === void 0 ? void 0 : (_view$encoding$channe33 = _view$encoding$channe32.axis) === null || _view$encoding$channe33 === void 0 ? void 0 : _view$encoding$channe33.labels,
               'ticks': (_view$encoding$channe34 = view.encoding[channel]) === null || _view$encoding$channe34 === void 0 ? void 0 : (_view$encoding$channe35 = _view$encoding$channe34.axis) === null || _view$encoding$channe35 === void 0 ? void 0 : _view$encoding$channe35.ticks,
@@ -4171,7 +4169,6 @@ const Axes = props => {
               'scales': scales,
               'rangesMax': rangesMax,
               'color': options.chartColor,
-              'title': title,
               'titlePadding': (_view$encoding$channe42 = view.encoding[channel]) === null || _view$encoding$channe42 === void 0 ? void 0 : (_view$encoding$channe43 = _view$encoding$channe42.axis) === null || _view$encoding$channe43 === void 0 ? void 0 : _view$encoding$channe43.titlePadding,
               'labels': (_view$encoding$channe44 = view.encoding[channel]) === null || _view$encoding$channe44 === void 0 ? void 0 : (_view$encoding$channe45 = _view$encoding$channe44.axis) === null || _view$encoding$channe45 === void 0 ? void 0 : _view$encoding$channe45.labels,
               'ticks': (_view$encoding$channe46 = view.encoding[channel]) === null || _view$encoding$channe46 === void 0 ? void 0 : (_view$encoding$channe47 = _view$encoding$channe46.axis) === null || _view$encoding$channe47 === void 0 ? void 0 : _view$encoding$channe47.ticks,
@@ -5545,5 +5542,5 @@ VRIA.propTypes = {
 var index = React.memo(VRIA);
 
 export default index;
-export { schema, validateVisConfig };
+export { chartData, schema, validateVisConfig };
 //# sourceMappingURL=vria.modern.js.map
