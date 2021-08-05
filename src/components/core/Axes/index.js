@@ -54,6 +54,9 @@ const Axes = (props) => {
   const generateAxes = () => {
     const axes = [];
     const axis_data = [];
+    delete chartData['xAxis'];
+    delete chartData['yAxis'];
+    delete chartData['zAxis'];
 
     ['x', 'y', 'z'].forEach((channel) => {
       // If this channel is in the view

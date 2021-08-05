@@ -44,6 +44,7 @@ ws.onmessage = function(e){
     console.log(chartData);
     ws.send(JSON.stringify(chartData));
     document.getElementById('root').removeChild(document.getElementById('root').childNodes[0]);
+    chartData = {};
   }, 10);
   // ws.send(JSON.stringify(chartData));
 }

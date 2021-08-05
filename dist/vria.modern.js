@@ -4038,6 +4038,9 @@ const Axes = props => {
   const generateAxes = () => {
     const axes = [];
     const axis_data = [];
+    delete chartData['xAxis'];
+    delete chartData['yAxis'];
+    delete chartData['zAxis'];
     ['x', 'y', 'z'].forEach(channel => {
       var _view$encoding$channe, _view$encoding$channe11, _view$encoding$channe12, _view$encoding$channe13, _view$encoding$channe14, _view$encoding$channe15, _view$encoding$channe16, _view$encoding$channe17, _view$encoding$channe18, _view$encoding$channe19, _view$encoding$channe20, _view$encoding$channe21, _view$encoding$channe22, _view$encoding$channe23, _view$encoding$channe24, _view$encoding$channe25, _view$encoding$channe26, _view$encoding$channe27, _view$encoding$channe28, _view$encoding$channe29, _view$encoding$channe30, _view$encoding$channe31, _view$encoding$channe32, _view$encoding$channe33, _view$encoding$channe34, _view$encoding$channe35, _view$encoding$channe36, _view$encoding$channe37, _view$encoding$channe38, _view$encoding$channe39, _view$encoding$channe40, _view$encoding$channe41, _view$encoding$channe42, _view$encoding$channe43, _view$encoding$channe44, _view$encoding$channe45, _view$encoding$channe46, _view$encoding$channe47;
 
